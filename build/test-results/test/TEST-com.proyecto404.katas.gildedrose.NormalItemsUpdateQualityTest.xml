@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.proyecto404.katas.gildedrose.NormalItemsUpdateQualityTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-06-19T21:16:13" hostname="DESKTOP-VOEG1QV" time="0.001">
+  <properties/>
+  <testcase name="when_the_sellIn_date_has_passed_items_degrade_quality_twice" classname="com.proyecto404.katas.gildedrose.NormalItemsUpdateQualityTest" time="0.0"/>
+  <testcase name="the_quality_of_an_item_is_never_negative" classname="com.proyecto404.katas.gildedrose.NormalItemsUpdateQualityTest" time="0.0"/>
+  <testcase name="items_degrade_quality_each_update" classname="com.proyecto404.katas.gildedrose.NormalItemsUpdateQualityTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
