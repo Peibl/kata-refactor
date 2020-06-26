@@ -4,11 +4,10 @@ import com.proyecto404.katas.gildedrose.qualityUpdater.QualityUpdater;
 import com.proyecto404.katas.gildedrose.qualityUpdater.ItemQualityUpdaterFactory;
 import com.proyecto404.katas.gildedrose.sellInUpdater.ItemSellInUpdaterFactory;
 import com.proyecto404.katas.gildedrose.sellInUpdater.SellInUpdater;
-
 import java.util.ArrayList;
 import java.util.List;
 //ordenar namespaces
-//handler en implementaciones
+
 public class GildedRose {
 
     public static void main(String[] args) {

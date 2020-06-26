@@ -4,24 +4,24 @@ import com.proyecto404.katas.gildedrose.Item;
 
 public class BackstagePassesQualityUpdater implements QualityUpdater {
     public void update(Item item) {
-        if (item.getQuality() < 50) {
-            item.setQuality(item.getQuality() + 1);
-        }
+        int quality = calculateQuality(item);
+        setQuality(quality, item);
+    }
 
-        if(item.getSellIn() > 0) {
-            if (item.getSellIn() < 11) {
-                if (item.getQuality() < 50) {
-                    item.setQuality(item.getQuality() + 1);
-                }
-            }
+    private void setQuality(int quality, Item item) {
+        item.setQuality(quality);
+    }
 
-            if (item.getSellIn() < 6) {
-                if (item.getQuality() < 50) {
-                    item.setQuality(item.getQuality() + 1);
-                }
-            }
-        } else {
-            item.setQuality(0);
+    private int calculateQuality(Item item) {
+        if (item.getSellIn() <= 0) return 0;
+        int quality = item.getQuality();
+        quality++;
+        if (item.getSellIn() < 11) {
+            quality++;
         }
+        if (item.getSellIn() < 6) {
+            quality++;
+        }
+        return quality;
     }
 }

@@ -4,16 +4,21 @@ import com.proyecto404.katas.gildedrose.Item;
 
 public class NormalItemHandlerQualityUpdater implements QualityUpdater {
     public void update(Item item) {
-        if(item.getQuality() <= 0) return;
-        tryDecreaseQuality(item);
-        if (item.getSellIn() <= 0) {
-            tryDecreaseQuality(item);
-        }
+        int quality = calculateQuality(item);
+        setQuality(quality, item);
     }
 
-    private void tryDecreaseQuality(Item item) {
-        if (item.getQuality() > 0) {
-            item.setQuality(item.getQuality() - 1);
+    private void setQuality(int quality, Item item) {
+        item.setQuality(quality);
+        if(item.getQuality() < 0) item.setQuality(0);
+    }
+
+    private int calculateQuality(Item item) {
+        int quality = item.getQuality();
+        quality--;
+        if (item.getSellIn() <= 0) {
+            quality--;
         }
+        return quality;
     }
 }

@@ -4,19 +4,21 @@ import com.proyecto404.katas.gildedrose.Item;
 
 public class AgedBrieItemQualityUpdater implements QualityUpdater {
     public void update(Item item) {
-        tryIncreaseQuality(item);
+        int quality = calculateQuality(item);
+        setQuality(quality, item);
+    }
+
+    private void setQuality(int quality, Item item) {
+        item.setQuality(quality);
+        if(item.getQuality() > 50) item.setQuality(50);
+    }
+
+    private int calculateQuality(Item item) {
+        int quality = item.getQuality();
+        quality++;
         if (item.getSellIn() < 0) {
-            tryIncreaseQuality(item);
+          quality++;
         }
-    }
-
-    private void tryIncreaseQuality(Item item) {
-        if (isMaxQuality(item)) {
-            item.setQuality(item.getQuality() + 1);
-        }
-    }
-
-    private boolean isMaxQuality(Item item) {
-        return item.getQuality() < 50;
+        return quality;
     }
 }
