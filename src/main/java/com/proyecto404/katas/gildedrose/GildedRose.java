@@ -1,14 +1,12 @@
 package com.proyecto404.katas.gildedrose;
 
-import com.proyecto404.katas.gildedrose.handlers.QualityUpdater;
-import com.proyecto404.katas.gildedrose.handlers.ItemsUpdaterFactory;
-import com.proyecto404.katas.gildedrose.handlers.SellInUpdater;
+import com.proyecto404.katas.gildedrose.qualityUpdater.QualityUpdater;
+import com.proyecto404.katas.gildedrose.qualityUpdater.ItemQualityUpdaterFactory;
+import com.proyecto404.katas.gildedrose.sellInUpdater.ItemSellInUpdaterFactory;
+import com.proyecto404.katas.gildedrose.sellInUpdater.SellInUpdater;
 
 import java.util.ArrayList;
 import java.util.List;
-//Separar manejo de sell in de quality
-//QualityUpdater
-//SellIn updater
 //ordenar namespaces
 //handler en implementaciones
 public class GildedRose {
@@ -32,11 +30,12 @@ public class GildedRose {
     }
 
     public static void updateQuality(List<Item> items) {
-        ItemsUpdaterFactory factory = new ItemsUpdaterFactory();
+        ItemQualityUpdaterFactory itemQualityUpdaterFactory = new ItemQualityUpdaterFactory();
+        ItemSellInUpdaterFactory itemSellInUpdaterFactory = new ItemSellInUpdaterFactory();
         for (Item item : items) {
-            QualityUpdater qualityUpdater = factory.getQualityUpdater(item);
+            QualityUpdater qualityUpdater = itemQualityUpdaterFactory.getUpdater(item);
             qualityUpdater.update(item);
-            SellInUpdater sellInUpdater = factory.getSellInUpdater(item);
+            SellInUpdater sellInUpdater = itemSellInUpdaterFactory.getUpdater(item);
             sellInUpdater.update(item);
         }
     }

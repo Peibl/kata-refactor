@@ -1,4 +1,4 @@
-package com.proyecto404.katas.gildedrose.handlers;
+package com.proyecto404.katas.gildedrose.qualityUpdater;
 
 import com.proyecto404.katas.gildedrose.Item;
 
